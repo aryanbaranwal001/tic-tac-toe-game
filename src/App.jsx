@@ -1,14 +1,14 @@
-
+import { Player1, Player2, Gamearea } from "./components"
 
 function App() {
 
   
   return (
     <>
-      <div className='flex'>
-        <div className='h-[30px] w-[30px] bg-amber-400'>
-
-        </div>
+      <div className='flex flex-row h-screen bg-gray-700 items-center justify-center gap-2'>
+        <Player1 />        
+        <Gamearea />        
+        <Player2 />                
       </div>
     </>
   )
