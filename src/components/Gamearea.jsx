@@ -14,7 +14,7 @@ function Gamearea() {
         <button
           key={cell.cellid}
           onClick={() => handleMove(cell.cellid, cell.position)}
-          className="bg-gray-700 flex h-32 w-32 cursor-pointer"
+          className="bg-gray-700 flex h-40 w-40 cursor-pointer"
         ></button>
       );
       myCellData[cell.cellid].value = value1;
@@ -40,7 +40,7 @@ function Gamearea() {
           <button
             key={cell.cellid}
             onClick={() => handleMove(cell.cellid, cell.position)}
-            className="bg-gray-700 flex h-32 w-32 cursor-pointer"
+            className="bg-gray-700 flex h-40 w-40 cursor-pointer"
           ></button>
         );
         myCellData[cell.cellid].value = value1;
@@ -75,9 +75,9 @@ function Gamearea() {
         player = "PlayerO";
         
         value1 = (
-          <div class="relative w-32 h-32 flex items-center justify-center bg-gray-700">
-            <div class="absolute w-36 h-[10px] bg-amber-400 rotate-45"></div>
-            <div class="absolute w-36 h-[10px] bg-amber-400 -rotate-45"></div>
+          <div class="relative w-40 h-40 flex items-center justify-center bg-gray-700">
+            <div class="absolute w-38 h-[10px] bg-amber-400 rotate-45"></div>
+            <div class="absolute w-38 h-[10px] bg-amber-400 -rotate-45"></div>
           </div>
         );
         return value1;
@@ -86,8 +86,8 @@ function Gamearea() {
         cellIdUpdate = cell.cellid;
         player = "PlayerX";
         value1 = (
-          <div className="box-border p-3 bg-gray-700 flex h-32 w-32">
-            <div class="flex border-[10px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
+          <div className=" p-4 bg-gray-700 flex h-40 w-40">
+            <div class="flex border-[9px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
           </div>
         );
         return value1;
