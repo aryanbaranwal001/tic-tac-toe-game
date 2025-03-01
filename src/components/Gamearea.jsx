@@ -1,18 +1,21 @@
 import { boardData, cellData } from "../../public";
 import { useState } from "react";
 import { useEffect } from "react";
+import { updateBoard } from "../logics";
+
 
 function Gamearea() {
   let player = "";
   const [layoutComponents, setLayoutComponents] = useState([]);
   let myCellData = cellData;
+  let myBoardData = boardData;
   useEffect(() => {
     //setting up layout array for initial tictacto grip
     const layout = Object.values(cellData).map((cell) => {
       const value1 = (
         <button
           key={cell.cellid}
-          onClick={() => handleClick(cell.cellid)}
+          onClick={() => handleMove(cell.cellid, cell.position)}
           className="bg-gray-700 flex h-32 w-32 cursor-pointer"
         ></button>
       );
@@ -30,13 +33,15 @@ function Gamearea() {
      
   }, []);
 
-  function handleClick(cellid1) {
+  function handleMove(cellid1, position1) {
     let value1 = null;
     let cellIdUpdate = null;
     const layoutTemp = Object.values(myCellData).map((cell) => {
       if (cell.cellid === cellid1 && player === "PlayerX") {
+        updateBoard(myBoardData, position1, 1)
         cellIdUpdate = cell.cellid;
         player = "PlayerO";
+        
         value1 = (
           <div class="relative w-32 h-32 flex items-center justify-center bg-gray-700">
             <div class="absolute w-36 h-[10px] bg-amber-400 rotate-45"></div>
@@ -45,6 +50,7 @@ function Gamearea() {
         );
         return value1;
       } else if (cell.cellid === cellid1 && player === "PlayerO") {
+        updateBoard(myBoardData, position1, 0)
         cellIdUpdate = cell.cellid;
         player = "PlayerX";
         value1 = (
