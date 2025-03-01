@@ -5,7 +5,16 @@ function Player2() {
   
   return (
     <>
-      Player2
+      <div className="bg-amber-500 flex flex-col justify-center w-80 h-120 rounded-3xl text-5xl gap-15">
+        <div className="name flex justify-center">
+          PLAYER 2
+        </div>
+        <div className="flex justify-center">
+
+          <div className="size-40 bg-green-700 rounded-[1000px] "></div>
+        </div>
+      
+      </div>
     </>
   )
 }

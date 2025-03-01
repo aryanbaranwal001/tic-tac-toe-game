@@ -30,8 +30,7 @@ function Gamearea() {
 
   }, []);
 
-
-
+/// handle win function
   const handleWin = (cellData1, myBoardData1) => {
     //reset mycelldata and update the grid
 
