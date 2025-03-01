@@ -1,48 +1,45 @@
 import { boardData, cellData } from "../../public"
+import { useState } from "react"
+import { useEffect } from "react";
+
 
 function Gamearea() {
-  
+  const [layoutComponents, setLayoutComponents] = useState(null);
+  const 
+
+  useEffect(()=>{
+    const layout = Object.values(cellData).map(cell =>{
+        return (
+          <button key={cell.cellid} disabled={cell.status} onClick={() => handleClick(cell.cellid)} className="bg-gray-700 flex h-32 w-32 cursor-pointer"></button> 
+        )
+      })
+      setLayoutComponents(() =>{
+        return layout
+      })
+  }, [])
 
 
-  const clicked = () => {
-      console.log("clicked")
-  }
-  const buttons = Object.values(cellData).map(cell =>{
 
-    // if (cell.cellid === 11){
-      return (
-    <div class="relative bg-gray-700 w-32 h-32 flex items-center justify-center">
-        <div class="absolute w-36 h-[10px] bg-amber-400 rotate-45"></div>
-        <div class="absolute w-36 h-[10px] bg-amber-400 -rotate-45"></div>
-    </div>
-
-      )
-    // } else {
-
-    //   return (
-    //     <button key={cell.cellid} disabled={cell.status} onClick={clicked} className="bg-gray-700 flex h-32 w-32 cursor-pointer"></button> 
-    //   )
-    // }
+function handleClick(cellid) {
+  Object.values(layoutComponents).map(cell =>{
+    return (
+      <button key={cell.cellid} disabled={cell.status} onClick={() => handleClick(cell.cellid)} className="bg-gray-700 flex h-32 w-32 cursor-pointer"></button> 
+    )
   })
 
-  console.log(buttons)
+
+
+}
+
+
+
+
   
   return (
     <>
       <div className='grid grid-cols-3 bg-amber-400 gap-[9px]'>
-        {buttons}
+        {layoutComponents}
       </div>   
-
-
-
-    <div class="relative w-32 h-32 flex items-center justify-center">
-        <div class="absolute w-36 h-[10px] bg-amber-400 rotate-45"></div>
-        <div class="absolute w-36 h-[10px] bg-amber-400 -rotate-45"></div>
-    </div>
-      
-
-
-
     </>
     )
 }
