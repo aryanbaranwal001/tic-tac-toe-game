@@ -1,0 +1,8 @@
+        <div className="box-border p-3 bg-gray-700 flex h-32 w-32">
+          <div class="flex border-[10px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
+        </div>
+
+
+circle
+
+

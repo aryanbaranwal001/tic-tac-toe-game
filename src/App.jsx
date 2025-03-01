@@ -8,9 +8,16 @@ function App() {
       <div className='flex flex-row h-screen bg-gray-700 items-center justify-center gap-2'>
         <Player1 />        
         <Gamearea />        
-        <Player2 />                
+        <Player2 /> 
+                       
       </div>
     </>
+
+
+
+
+
+
   )
 }
 
