@@ -6,66 +6,43 @@ const boardData = {
   ],
   currentTurn: "Player1"
 };
-
-
 const cellData = {
-  
   cell11: {
-    cellid: 11,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell11",
+    value: null
+  },
   cell12: {
-    cellid: 12,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell12",
+    value: null
+  },
   cell13: {
-    cellid: 13,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell13",
+    value: null
+  },
   cell21: {
-    cellid: 21,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell21",
+    value: null
+  },
   cell22: {
-    cellid: 22,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell22",
+    value: null
+  },
   cell23: {
-    cellid: 23,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell23",
+    value: null
+  },
   cell31: {
-    cellid: 31,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell31",
+    value: null
+  },
   cell32: {
-    cellid: 32,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
+    cellid: "cell32",
+    value: null
+  },
   cell33: {
-    cellid: 33,
-    value: null,
-    imgSrc: "",
-    status: false
-  },    
-  
-  
+    cellid: "cell33",
+    value: null
+  }
 }
 
 

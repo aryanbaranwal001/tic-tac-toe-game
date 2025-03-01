@@ -6,13 +6,18 @@ import { useEffect } from "react";
 function Gamearea() {
   let player = ""
   const [layoutComponents, setLayoutComponents] = useState([]);
-  const [layoutData, setLayoutData] = useState(cellData);
-
+  let myCellData = cellData;
   useEffect(()=>{
     const layout = Object.values(cellData).map(cell =>{
+      const value1 = (
+        <button key={cell.cellid}  onClick={() => handleClick(cell.cellid)} className="bg-gray-700 flex h-32 w-32 cursor-pointer"></button> 
+      );
+      myCellData[cell.cellid].value = (value1)
+      
         return (
-          <button key={cell.cellid}  onClick={() => handleClick(cell.cellid)} className="bg-gray-700 flex h-32 w-32 cursor-pointer"></button> 
+          value1
         )
+
       })
       setLayoutComponents(() =>{
         return layout
@@ -27,33 +32,40 @@ function Gamearea() {
     
     
 function handleClick(cellid) {
-  console.log(cellid, player)
-  const layoutTemp = Object.values(cellData).map(cell =>{
+  let value1 = null;
+  const layoutTemp = Object.values(myCellData).map(cell =>{
+
 
     if (cell.cellid === cellid && player==="PlayerX") {
       player = "PlayerO"
-      return (
+      value1 = (
         <div class="relative w-32 h-32 flex items-center justify-center bg-gray-700">
           <div class="absolute w-36 h-[10px] bg-amber-400 rotate-45"></div>
           <div class="absolute w-36 h-[10px] bg-amber-400 -rotate-45"></div>
-        </div>        
+        </div>      
+      );
+      return (
+        {value1}        
       )
     } else if (cell.cellid === cellid && player==="PlayerO") {
       player = "PlayerX"
-      return (
+      value1 = (
         <div className="box-border p-3 bg-gray-700 flex h-32 w-32">
           <div class="flex border-[10px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
-        </div>        
+        </div>       
+      );
+      return (
+        {value1}        
       )
     } else {
       return (
-        <button key={cell.cellid} onClick={() => handleClick(cell.cellid)} className="bg-gray-700 flex h-32 w-32 cursor-pointer"></button> 
+        myCellData[cellid].value 
       )
     }
     
   })
 
-
+myCellData[cellid].value = (value1)
 console.log(layoutTemp)
 
 setLayoutComponents(layoutTemp)
