@@ -74,9 +74,9 @@ function Gamearea() {
         player = "PlayerO";
         
         value1 = (
-          <div class="relative w-40 h-40 flex items-center justify-center bg-gray-700">
-            <div class="absolute w-38 h-[10px] bg-amber-400 rotate-45"></div>
-            <div class="absolute w-38 h-[10px] bg-amber-400 -rotate-45"></div>
+          <div className="relative w-40 h-40 flex items-center justify-center bg-gray-700">
+            <div className="absolute w-38 h-[10px] bg-amber-400 rotate-45"></div>
+            <div className="absolute w-38 h-[10px] bg-amber-400 -rotate-45"></div>
           </div>
         );
         return value1;
@@ -86,7 +86,7 @@ function Gamearea() {
         player = "PlayerX";
         value1 = (
           <div className=" p-4 bg-gray-700 flex h-40 w-40">
-            <div class="flex border-[9px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
+            <div className="flex border-[9px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
           </div>
         );
         return value1;
