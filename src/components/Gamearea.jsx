@@ -1,8 +1,6 @@
 import { boardData, cellData } from "../../public";
-import { useState } from "react";
-import { useEffect } from "react";
-import { updateBoard } from "../logics";
-
+import { useState, useEffect } from "react";
+import { updateBoard, WinCheck} from "../logics";
 
 function Gamearea() {
   let player = "";
@@ -30,8 +28,41 @@ function Gamearea() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     player = "PlayerX";
 
-     
   }, []);
+
+
+
+  const handleWin = (cellData1, myBoardData1) => {
+    //reset mycelldata and update the grid
+
+      const layout1 = Object.values(cellData1).map((cell) => {
+        const value1 = (
+          <button
+            key={cell.cellid}
+            onClick={() => handleMove(cell.cellid, cell.position)}
+            className="bg-gray-700 flex h-32 w-32 cursor-pointer"
+          ></button>
+        );
+        myCellData[cell.cellid].value = value1;
+        return value1;
+      });
+      
+      //updating the board
+      myBoardData = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+      ];
+      
+      return layout1
+  
+  };
+  
+
+
+
+
+
 
   function handleMove(cellid1, position1) {
     let value1 = null;
@@ -39,6 +70,7 @@ function Gamearea() {
     const layoutTemp = Object.values(myCellData).map((cell) => {
       if (cell.cellid === cellid1 && player === "PlayerX") {
         updateBoard(myBoardData, position1, 1)
+
         cellIdUpdate = cell.cellid;
         player = "PlayerO";
         
@@ -63,13 +95,22 @@ function Gamearea() {
         return myCellData[cell.cellid].value;
       }
     });
-
+    
     myCellData[cellIdUpdate].value = value1;
-
-    console.log(layoutTemp);
+    
     setLayoutComponents(layoutTemp);
+    
+    if (WinCheck(myBoardData)) {
+      setTimeout(() => {
+        alert("You Won")
+      }, 80)
+      setTimeout(() => {
+        setLayoutComponents(handleWin(cellData))
+      }, 1000)
+    }        
+    
   }
-
+  
   // return the final tictactoe grid
   return (
     <>

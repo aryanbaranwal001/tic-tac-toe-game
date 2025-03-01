@@ -1,7 +1,6 @@
 
 function rowCheck(board1) {
   let checkArray = [null, null, null];
-  console.log("rowcheck");
   for (let i = 0; i < board1.length; i++) {
     for (let j = 0; j < board1[0].length; j++) {
       if (board1[i][j] === null) {
@@ -27,7 +26,6 @@ function rowCheck(board1) {
 }
 function colCheck(board1) {
   let checkArray = [null, null, null];
-  console.log("colcheck");
 
   for (let i = 0; i < board1[0].length; i++) {
     for (let j = 0; j < board1.length; j++) {
@@ -56,7 +54,6 @@ function colCheck(board1) {
 function diaCheck(board1) {
   let checkArray1 = [null, null, null];
   let checkArray2 = [null, null, null];
-  console.log("diacheck");
   
   for (let i = 0; i < board1[0].length; i++) {
     if (board1[i][i] !== null) {
