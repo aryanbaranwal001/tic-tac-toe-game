@@ -110,6 +110,14 @@ function Gamearea() {
     const winChecktOutput = WinCheck(myBoardData);
     /// checking for win
     if (winChecktOutput) {
+      // retain whose chance was last
+      if (player === "PlayerX") {
+        playerColorHandler("PlayerO")
+      } else if (player === "PlayerO") {
+        playerColorHandler("PlayerX")
+
+      }
+
       setTimeout(() => {
         /// couldn't do current player thing. Will check later
         if (player === "PlayerX") {
@@ -122,6 +130,11 @@ function Gamearea() {
         setLayoutComponents(handleWin(cellData));
       }, 1000);
     } else if (!winChecktOutput && !checkNull(myBoardData)) {
+    //resetting the player colors
+    setplayersColorState({
+      player1color: "bg-green-700",
+      player2color: "bg-red-700",
+    });         
       setTimeout(() => {
         alert("There Was No Winner");
       }, 80);
