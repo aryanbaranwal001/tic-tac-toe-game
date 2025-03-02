@@ -2,7 +2,7 @@
 function rowCheck(board1) {
   let checkArray = [null, null, null];
   for (let i = 0; i < board1.length; i++) {
-    for (let j = 0; j < board1[0].length; j++) {
+    for (let j = 0; j < board1[i].length; j++) {
       if (board1[i][j] === null) {
         continue;
       }
@@ -81,5 +81,16 @@ function WinCheck(board2) {
   }
   return false;
 }
+
+const myBoardData = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null]
+];
+
+
+
+
+
 
 export default WinCheck;

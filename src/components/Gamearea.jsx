@@ -1,6 +1,6 @@
 import { boardData, cellData } from "../../public";
 import { useState, useEffect } from "react";
-import { updateBoard, WinCheck} from "../logics";
+import { updateBoard, WinCheck, checkNull} from "../logics";
 
 function Gamearea() {
   let player = "";
@@ -31,7 +31,7 @@ function Gamearea() {
   }, []);
 
 /// handle win function
-  const handleWin = (cellData1, myBoardData1) => {
+  const handleWin = (cellData1) => {
     //reset mycelldata and update the grid
 
       const layout1 = Object.values(cellData1).map((cell) => {
@@ -52,9 +52,8 @@ function Gamearea() {
         [null, null, null],
         [null, null, null]
       ];
-      
+      player = "PlayerX";
       return layout1
-  
   };
   
 
@@ -99,14 +98,49 @@ function Gamearea() {
     
     setLayoutComponents(layoutTemp);
     
-    if (WinCheck(myBoardData)) {
+    const winChecktOutput = WinCheck(myBoardData);
+    /// checking for win
+    if (winChecktOutput) {
       setTimeout(() => {
         alert("You Won")
       }, 80)
       setTimeout(() => {
         setLayoutComponents(handleWin(cellData))
       }, 1000)
-    }        
+    } else if (!winChecktOutput && !checkNull(myBoardData)) {
+
+      setTimeout(() => {
+        alert("No Body Wins")
+      }, 80)
+      setTimeout(() => {
+        // updating board data
+        myBoardData = [
+          [null, null, null],
+          [null, null, null],
+          [null, null, null]
+        ];
+        // updating grid
+        const layout1 = Object.values(cellData).map((cell) => {
+          const value1 = (
+            <button
+              key={cell.cellid}
+              onClick={() => handleMove(cell.cellid, cell.position)}
+              className="bg-gray-700 flex h-40 w-40 cursor-pointer"
+            ></button>
+          );
+          myCellData[cell.cellid].value = value1;
+          return value1;
+        });
+
+        setLayoutComponents(layout1)
+
+
+      }, 1000)
+
+
+
+
+    }
     
   }
   
