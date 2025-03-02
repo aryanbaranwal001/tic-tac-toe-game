@@ -62,7 +62,7 @@ function Gamearea() {
     setplayersColorState({
       player1color: "bg-green-700",
       player2color: "bg-red-700",
-    });    
+    });
 
     return layout1;
   };
@@ -112,10 +112,9 @@ function Gamearea() {
     if (winChecktOutput) {
       // retain whose chance was last
       if (player === "PlayerX") {
-        playerColorHandler("PlayerO")
+        playerColorHandler("PlayerO");
       } else if (player === "PlayerO") {
-        playerColorHandler("PlayerX")
-
+        playerColorHandler("PlayerX");
       }
 
       setTimeout(() => {
@@ -130,11 +129,11 @@ function Gamearea() {
         setLayoutComponents(handleWin(cellData));
       }, 1000);
     } else if (!winChecktOutput && !checkNull(myBoardData)) {
-    //resetting the player colors
-    setplayersColorState({
-      player1color: "bg-green-700",
-      player2color: "bg-red-700",
-    });         
+      //resetting the player colors
+      setplayersColorState({
+        player1color: "bg-green-700",
+        player2color: "bg-red-700",
+      });
       setTimeout(() => {
         alert("There Was No Winner");
       }, 80);
@@ -166,15 +165,14 @@ function Gamearea() {
   function playerColorHandler(player1) {
     if (player1 === "PlayerO") {
       setplayersColorState({
-          player1color: "bg-red-700",
-          player2color: "bg-green-700",
-        });
+        player1color: "bg-red-700",
+        player2color: "bg-green-700",
+      });
     } else if (player1 === "PlayerX") {
       setplayersColorState({
         player1color: "bg-green-700",
         player2color: "bg-red-700",
       });
-
     }
   }
 

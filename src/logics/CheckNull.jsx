@@ -9,4 +9,4 @@ function checkNull(board1) {
   return false;
 }
 
-export default checkNull
+export default checkNull;

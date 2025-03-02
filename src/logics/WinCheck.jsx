@@ -1,4 +1,3 @@
-
 function rowCheck(board1) {
   let checkArray = [null, null, null];
   for (let i = 0; i < board1.length; i++) {
@@ -13,10 +12,7 @@ function rowCheck(board1) {
       checkArray[1] !== null &&
       checkArray[2] !== null
     ) {
-      if (
-        checkArray[0] === checkArray[1] &&
-        checkArray[1] === checkArray[2]
-      ) {
+      if (checkArray[0] === checkArray[1] && checkArray[1] === checkArray[2]) {
         return true;
       }
     }
@@ -39,10 +35,7 @@ function colCheck(board1) {
       checkArray[1] !== null &&
       checkArray[2] !== null
     ) {
-      if (
-        checkArray[0] === checkArray[1] &&
-        checkArray[1] === checkArray[2]
-      ) {
+      if (checkArray[0] === checkArray[1] && checkArray[1] === checkArray[2]) {
         return true;
       }
     }
@@ -54,7 +47,7 @@ function colCheck(board1) {
 function diaCheck(board1) {
   let checkArray1 = [null, null, null];
   let checkArray2 = [null, null, null];
-  
+
   for (let i = 0; i < board1[0].length; i++) {
     if (board1[i][i] !== null) {
       checkArray1[i] = board1[i][i];
@@ -62,7 +55,6 @@ function diaCheck(board1) {
     if (board1[i][2 - i] !== null) {
       checkArray2[i] = board1[i][2 - i];
     }
-    
   }
   return CheckArrayChecker(checkArray1) || CheckArrayChecker(checkArray2);
 }
@@ -85,12 +77,7 @@ function WinCheck(board2) {
 const myBoardData = [
   [null, null, null],
   [null, null, null],
-  [null, null, null]
+  [null, null, null],
 ];
-
-
-
-
-
 
 export default WinCheck;
