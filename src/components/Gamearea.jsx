@@ -73,7 +73,7 @@ function Gamearea() {
         player = "PlayerO";
         
         value1 = (
-          <div className="relative w-40 h-40 flex items-center justify-center bg-gray-700">
+          <div key={cell.cellid} className="relative w-40 h-40 flex items-center justify-center bg-gray-700">
             <div className="absolute w-38 h-[10px] bg-amber-400 rotate-45"></div>
             <div className="absolute w-38 h-[10px] bg-amber-400 -rotate-45"></div>
           </div>
@@ -84,7 +84,7 @@ function Gamearea() {
         cellIdUpdate = cell.cellid;
         player = "PlayerX";
         value1 = (
-          <div className=" p-4 bg-gray-700 flex h-40 w-40">
+          <div key={cell.cellid} className=" p-4 bg-gray-700 flex h-40 w-40">
             <div className="flex border-[9px] bg-gray-700 border-amber-400 rounded-full w-full h-full"></div>
           </div>
         );
