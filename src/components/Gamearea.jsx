@@ -102,7 +102,12 @@ function Gamearea() {
     /// checking for win
     if (winChecktOutput) {
       setTimeout(() => {
-        alert("You Won")
+        /// couldn't do current player thing. Will check later
+        if (player === "PlayerX") {
+          alert("Player 2 Won")
+        } else if (player === "PlayerO") {
+          alert("Player 1 Won")
+        }
       }, 80)
       setTimeout(() => {
         setLayoutComponents(handleWin(cellData))
@@ -110,7 +115,7 @@ function Gamearea() {
     } else if (!winChecktOutput && !checkNull(myBoardData)) {
 
       setTimeout(() => {
-        alert("No Body Wins")
+        alert("There Was No Winner")
       }, 80)
       setTimeout(() => {
         // updating board data
